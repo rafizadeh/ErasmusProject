@@ -1,0 +1,62 @@
+﻿@model  List<ErasmusApp.Models.About>
+@{
+    ViewBag.Title = "About";
+}
+
+<!-- Start banner Area -->
+<section class="banner-area relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container box_1170">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    About Project
+                </h1>
+                <p class="text-white link-nav">
+                    <a href="@Url.Action("Index","Home")">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="@Url.Action("Index","About")">
+                        About Project
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start main body Area -->
+<section class="main-body section-gap">
+    <div class="container box_1170">
+        <div class="row">
+            @foreach (var about in Model)
+            {
+                <div class="section-top-border col-12">
+                    <h3 class="mb-30">@about.Title</h3>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>
+                                @about.Description
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                if (about.DesignedDescription != null)
+                {
+
+                    <div class="section-top-border col-12">
+                        <h3 class="mb-30">@about.DesignedTitle</h3>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <blockquote class="generic-blockquote">
+                                    @about.DesignedDescription
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+        </div>
+    </div>
+</section>
+<!-- End main body Area -->

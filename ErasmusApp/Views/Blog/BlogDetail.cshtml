@@ -1,0 +1,28 @@
+﻿@model ErasmusApp.Models.Blog
+@{
+    ViewBag.Title = "BlogDetail";
+}
+<!-- Blog Area -->
+<section class="blog_area section-gap single-post-area">
+    <div class="container box_1170">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="main_blog_details">
+                    <img class="img-fluid" src="~/Uploads/Blogs/@Model.Photo" alt="">
+                    <h4>@Model.Title</h4>
+                    <div class="user_details">
+                        <div class="float-right">
+                            <div class="media">
+                                <div class="media-body">
+                                    <p>@Model.CreatedDate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @Model.Description
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Area -->

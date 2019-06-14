@@ -1,0 +1,45 @@
+﻿@model ErasmusApp.ViewModels.VwGallery
+@{
+    ViewBag.Title = "Gallery";
+}
+
+
+<!-- Start banner Area -->
+<section class="banner-area relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container box_1170">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    Gallery
+                </h1>
+                <p class="text-white link-nav">
+                    <a href="@Url.Action("Index","Home")">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="@Url.Action("Index","Gallery")">
+                        Gallery
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<div class="section-top-border">
+    <div class="row gallery-istem">
+        @foreach (var photo in Model.Galleries)
+        {
+            <h4>@photo.Title</h4>
+            foreach (var photoGallery in Model.GalleryPhotos)
+            {
+                if (photoGallery.GalleryId == photo.Id)
+                {
+                    <div class="col-md-4">
+                        <a href="~/Uploads/Gallery/@photoGallery.Path" class="img-pop-up">
+                            <div class="single-gallery-image" style="background: url(~/Uploads/Gallery/@photoGallery.Path);"></div>
+                        </a>
+                    </div>
+                }
+            }
+        }
+    </div>
+</div>
